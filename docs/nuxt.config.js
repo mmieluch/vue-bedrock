@@ -1,5 +1,5 @@
 module.exports = {
-  src: __dirname,
+  srcDir: __dirname,
 
   /*
   ** Customize the progress bar color
