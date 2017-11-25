@@ -9,16 +9,25 @@ module.exports = {
     'standard',
     'plugin:vue/recommended'
   ],
+  globals: {
+    Promise: true,
+    Vue: true
+  },
   plugins: [
+    'html',
     'jest'
   ],
   parserOptions: {
     ecmaVersion: 8,
     sourceType: "module"
   },
-  globals: {
-    Tether: true,
-    Promise: true,
-    Vue: true
-  }
+  rules: {
+    'comma-dangle': ['error', {
+      arrays: 'always-multiline',
+      objects: 'always-multiline',
+      imports: 'always-multiline',
+      exports: 'always-multiline',
+      functions: 'always-multiline',
+    }]
+  },
 }
