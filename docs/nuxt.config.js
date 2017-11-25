@@ -1,38 +1,41 @@
 module.exports = {
-  /*
-  ** Headers of the page
-  */
-  head: {
-    title: 'docs',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Vue Bedrock' }
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
-  },
+  src: __dirname,
+
   /*
   ** Customize the progress bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: '#2c3840' },
   /*
   ** Build configuration
   */
   build: {
+    extractCSS: true,
+    cssSourceMap: true,
     /*
     ** Run ESLint on save
     */
     extend (config, ctx) {
+      config.resolve.alias.vue = 'vue/dist/vue.common'
+
+      config.devtool = 'source-map'
+
       if (ctx.dev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
-          exclude: /(node_modules)/
+          exclude: /(node_modules)/,
         })
       }
-    }
-  }
+    },
+  },
+
+  manifest: {
+    name: 'Vue Bedrock',
+    description: 'Foundation components for Vue.js',
+  },
+
+  css: [
+    'foundation-sites/dist/css/foundation.css',
+  ],
 }
