@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Foundation components for Vue",
   "main": "index.js",
-  "repository": "git@github.com:mmieluch/vue-bedrock.git",
+  "repository": "https://github.com/mmieluch/vue-bedrock",
   "author": "Michał Mieluch <mieluch@gmail.com>",
   "license": "MIT",
   "private": false
