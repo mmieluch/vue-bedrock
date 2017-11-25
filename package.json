@@ -9,6 +9,12 @@
   "private": false,
   "devDependencies": {
     "caniuse-lite": "^1.0.30000697",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-jest": "^21.3.2",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-vue": "^2.1.0",
     "foundation-sites": "6.4.3",
     "nuxt": "^1.0.0-rc11"
   },

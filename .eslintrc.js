@@ -1,16 +1,24 @@
 module.exports = {
-  root: true,
-  parser: 'babel-eslint',
   env: {
     browser: true,
-    node: true
+    commonjs: true,
+    es6: true,
+    'jest/globals': true
   },
-  extends: 'standard',
-  // required to lint *.vue files
-  plugins: [
-    'html'
+  extends: [
+    'standard',
+    'plugin:vue/recommended'
   ],
-  // add your custom rules here
-  rules: {},
-  globals: {}
+  plugins: [
+    'jest'
+  ],
+  parserOptions: {
+    ecmaVersion: 8,
+    sourceType: "module"
+  },
+  globals: {
+    Tether: true,
+    Promise: true,
+    Vue: true
+  }
 }
