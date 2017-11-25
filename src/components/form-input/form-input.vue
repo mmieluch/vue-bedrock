@@ -1,5 +1,5 @@
 <script>
-  import formMixin from '~~/src/mixins/form'
+  import { formMixin, idMixin } from '~~/src/mixins'
 
   // Supported input types.
   const SUPPORTED_TYPES = [
@@ -9,7 +9,7 @@
 
   export default {
     name: 'FormInput',
-    mixins: [formMixin],
+    mixins: [formMixin, idMixin],
     props: {
       ariaInvalid: {
         type: [Boolean, String],
@@ -55,6 +55,7 @@
             'aria-required': this.required ? 'true' : null,
             autocomplete: this.autocomplete || null,
             disabled: this.disabled,
+            id: this.safeId(),
             name: this.name,
             placeholder: this.placeholder,
             readonly: this.readonly || this.plaintext,
