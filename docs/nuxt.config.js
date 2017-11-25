@@ -11,5 +11,7 @@ module.exports = {
     }
   },
 
-  css: [],
+  css: [
+    'foundation-sites/dist/css/foundation.css',
+  ],
 }
