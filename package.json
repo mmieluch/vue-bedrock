@@ -8,7 +8,9 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
-    "foundation-sites": "^6.4.4-rc1"
+    "caniuse-lite": "^1.0.30000697",
+    "foundation-sites": "^6.4.4-rc1",
+    "nuxt": "^1.0.0-rc11"
   },
   "peerDependencies": {
     "vue": "^2.5.8"
