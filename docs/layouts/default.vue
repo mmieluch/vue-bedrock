@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="grid-container">
     <div class="grid-x">
       <div class="cell">
         <nuxt />
