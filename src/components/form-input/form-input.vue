@@ -1,5 +1,5 @@
 <template>
-  <input />
+  <input :type="type" />
 </template>
 
 <script>
@@ -12,6 +12,11 @@
   export default {
     name: 'FormInput',
     props: {
+      type: {
+        type: String,
+        default: 'text',
+        validate: type => SUPPORTED_TYPES.includes(type),
+      },
       value: {
         default: null,
       },
