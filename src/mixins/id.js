@@ -2,12 +2,12 @@ export default {
   props: {
     id: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
   },
   data () {
     return {
-      localId_: null
+      localId_: null,
     }
   },
   mounted () {
@@ -24,6 +24,6 @@ export default {
       suffix = String(suffix).replace(/\s+/g, '_')
 
       return suffix ? `${id}_${suffix}` : id
-    }
-  }
+    },
+  },
 }
