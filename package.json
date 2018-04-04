@@ -15,7 +15,7 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^2.1.0",
-    "nuxt": "^1.0.0-rc11"
+    "nuxt": "^1.4.0"
   },
   "peerDependencies": {
     "vue": "^2.5.8"
