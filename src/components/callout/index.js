@@ -1,5 +1,1 @@
-export default {
-  render (h) {
-    
-  },
-}
+export { default } from './callout'
