@@ -11,7 +11,7 @@
 </template>
 
 <script>
-  import Callout from '../../src/components/callout'
+  import Callout from '../../src/components/containers/callout'
 
   export default {
     name: 'Foo',
