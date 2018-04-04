@@ -3,7 +3,7 @@
     <div class="grid-container">
       <div class="grid-x grid-margin-x">
         <div class="cell">
-          <Callout coloring="success" size="large">
+          <Callout coloring="success" size="large" :closable="true">
             <h5>Foo</h5>
             <p>bar</p>
           </Callout>
