@@ -3,7 +3,7 @@
     <div class="grid-container">
       <div class="grid-x grid-margin-x">
         <div class="cell">
-          <Callout />
+          <Callout>Foobar</Callout>
         </div>
       </div>
     </div>
