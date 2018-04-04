@@ -1,6 +1,12 @@
 <template>
   <article>
-    <Callout />
+    <div class="grid-container">
+      <div class="grid-x grid-margin-x">
+        <div class="cell">
+          <Callout />
+        </div>
+      </div>
+    </div>
   </article>
 </template>
 
@@ -15,3 +21,9 @@
     },
   }
 </script>
+
+<style scoped>
+  article {
+    margin: 3rem;
+  }
+</style>
