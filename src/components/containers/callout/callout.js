@@ -9,9 +9,6 @@ export default {
           'callout',
           this.computedColoringClass,
         ],
-        domProps: {
-          innerHTML: 'callout',
-        },
       }, [
         this.$slots.default,
       ],
