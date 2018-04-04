@@ -3,7 +3,7 @@
     <div class="grid-container">
       <div class="grid-x grid-margin-x">
         <div class="cell">
-          <Callout coloring="success">
+          <Callout coloring="success" size="large">
             <h5>Foo</h5>
             <p>bar</p>
           </Callout>
