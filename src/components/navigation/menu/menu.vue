@@ -11,7 +11,6 @@
   import uuid from 'uuid'
   import merge from 'lodash.merge'
   import get from 'lodash.get'
-  import isEmpty from 'lodash.isempty'
 
   const ALIGNMENTS = ['left', 'center', 'right']
 
@@ -34,6 +33,10 @@
         type: Array,
         default: () => {[]},
       },
+      vertical: {
+        type: Boolean,
+        default: false,
+      },
     },
     computed: {
       computedClass () {
@@ -41,7 +44,13 @@
           'menu',
           this.align !== 'left' ? `align-${this.align}` : null,
           this.isExpanded ? 'expanded' : null,
-        ].filter(item => !isEmpty(item))
+          this.isVertical ? 'vertical': null,
+        ].filter(item => item !== null)
+      },
+      computedItems () {
+        return this.items.map(item => merge({}, item, {
+          vbKey: uuid.v4(),
+        }))
       },
       isExpanded () {
         return (
@@ -49,14 +58,10 @@
           get(this.$options.propsData, 'expanded') === ''
         )
       },
-      computedItems () {
-        return this.items.map(item => merge({}, item, {
-          vbKey: uuid.v4(),
-        }))
+      isVertical () {
+        return this.vertical === true ||
+          get(this.$options.propsData, 'vertical') === ''
       },
-    },
-    beforeCreate () {
-      console.log(this)
     },
   }
 </script>
