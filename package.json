@@ -12,7 +12,11 @@
     "docs-gen": "nuxt generate -c docs/nuxt.config.js"
   },
   "dependencies": {
-    "foundation-sites": "^6.4.4-rc1"
+    "foundation-sites": "^6.4.4-rc1",
+    "lodash.get": "^4.4.2",
+    "lodash.isempty": "^4.4.0",
+    "lodash.merge": "^4.6.1",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "caniuse-lite": "^1.0.30000697",

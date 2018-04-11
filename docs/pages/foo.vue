@@ -11,7 +11,7 @@
       </div>
       <div class="grid-x grid-margin-x">
         <div class="cell">
-          <vb-menu></vb-menu>
+          <vb-menu :items="menuItems"></vb-menu>
         </div>
       </div>
     </div>
@@ -28,6 +28,16 @@
     components: {
       vbCallout,
       vbMenu,
+    },
+    data () {
+      return {
+        menuItems: [
+          { label: 'One' },
+          { label: 'Two' },
+          { label: 'Three' },
+          { label: 'Four', disabled: true },
+        ],
+      }
     },
   }
 </script>
