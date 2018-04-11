@@ -11,6 +11,7 @@
   import uuid from 'uuid'
   import merge from 'lodash.merge'
   import get from 'lodash.get'
+  import propFromAttrs from '../../../utils/prop-from-attrs'
 
   const ALIGNMENTS = ['left', 'center', 'right']
 
@@ -24,6 +25,10 @@
         type: String,
         default: 'left',
         validator: value => ALIGNMENTS.includes(value),
+      },
+      dropdown: {
+        type: Boolean,
+        default: false,
       },
       expanded: {
         type: Boolean,
@@ -44,34 +49,32 @@
     },
     computed: {
       computedClass () {
-        return [
-          'menu',
-          this.align !== 'left' ? `align-${this.align}` : null,
-          this.isExpanded ? 'expanded' : null,
-          this.isSimple ? 'simple': null,
-          this.isVertical ? 'vertical': null,
-        ].filter(item => item !== null)
+        return {
+          menu: true,
+          'align-center': this.align === 'center',
+          'align-right': this.align === 'right',
+          dropdown: this.isDropdown,
+          expanded: this.isExpanded,
+          simple: this.isSimple,
+          vertical: this.isVertical,
+        }
       },
       computedItems () {
         return this.items.map(item => merge({}, item, {
           vbKey: uuid.v4(),
         }))
       },
+      isDropdown () {
+        return propFromAttrs(this, 'dropdown')
+      },
       isExpanded () {
-        return (
-          this.expanded === true ||
-          get(this.$options.propsData, 'expanded') === ''
-        )
+        return propFromAttrs(this, 'expanded')
       },
       isSimple () {
-        return (
-          this.simple === true ||
-          get(this.$options.propsData, 'simple') === ''
-        )
+        return propFromAttrs(this, 'simple')
       },
       isVertical () {
-        return this.vertical === true ||
-          get(this.$options.propsData, 'vertical') === ''
+        return propFromAttrs(this, 'vertical')
       },
     },
   }
