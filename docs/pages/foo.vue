@@ -9,18 +9,25 @@
           </vb-callout>
         </div>
       </div>
+      <div class="grid-x grid-margin-x">
+        <div class="cell">
+          <vb-menu></vb-menu>
+        </div>
+      </div>
     </div>
   </article>
 </template>
 
 <script>
-  import VbCallout from '../../src/components/containers/callout/callout'
+  import vbCallout from '../../src/components/containers/callout/callout'
+  import vbMenu from '../../src/components/navigation/menu/menu'
 
   export default {
     name: 'Foo',
     layout: 'default',
     components: {
-      VbCallout,
+      vbCallout,
+      vbMenu,
     },
   }
 </script>
