@@ -3,10 +3,10 @@
     <div class="grid-container">
       <div class="grid-x grid-margin-x">
         <div class="cell">
-          <Callout coloring="success" size="large" :closable="true">
+          <vb-callout coloring="success" size="large" :closable="true">
             <h5>Foo</h5>
             <p>bar</p>
-          </Callout>
+          </vb-callout>
         </div>
       </div>
     </div>
@@ -14,13 +14,13 @@
 </template>
 
 <script>
-  import Callout from '../../src/components/containers/callout'
+  import VbCallout from '../../src/components/containers/callout/callout'
 
   export default {
     name: 'Foo',
     layout: 'default',
     components: {
-      Callout,
+      VbCallout,
     },
   }
 </script>
