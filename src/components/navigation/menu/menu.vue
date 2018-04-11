@@ -33,6 +33,10 @@
         type: Array,
         default: () => {[]},
       },
+      simple: {
+        type: Boolean,
+        default: false,
+      },
       vertical: {
         type: Boolean,
         default: false,
@@ -44,6 +48,7 @@
           'menu',
           this.align !== 'left' ? `align-${this.align}` : null,
           this.isExpanded ? 'expanded' : null,
+          this.isSimple ? 'simple': null,
           this.isVertical ? 'vertical': null,
         ].filter(item => item !== null)
       },
@@ -56,6 +61,12 @@
         return (
           this.expanded === true ||
           get(this.$options.propsData, 'expanded') === ''
+        )
+      },
+      isSimple () {
+        return (
+          this.simple === true ||
+          get(this.$options.propsData, 'simple') === ''
         )
       },
       isVertical () {
