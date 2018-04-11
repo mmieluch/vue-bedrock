@@ -4,4 +4,10 @@
   </main>
 </template>
 
-<style src="foundation-sites/dist/css/foundation.css"></style>
+<script>
+  import 'foundation-sites/dist/css/foundation.css'
+
+  export default {
+    name: 'DefaultLayout',
+  }
+</script>
