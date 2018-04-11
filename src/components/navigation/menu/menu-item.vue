@@ -1,30 +1,66 @@
 <template>
   <li :class="computedClass">
-    <span v-if="isDisabled">{{ item.label }}</span>
-    <a v-else href="#">{{ item.label }}</a>
+    <a v-if="isLink" :href="computedHref">{{ label }}</a>
+    <template v-else>{{ label }}</template>
   </li>
 </template>
 
 <script>
   import get from 'lodash.get'
   import isEmpty from 'lodash.isempty'
+  import RouterLink from '../../../mixins/router-link'
 
   export default {
     name: 'vbMenuItem',
+    mixins: [
+      RouterLink,
+    ],
     props: {
-      item: {
-        type: Object,
+      disabled: {
+        type: Boolean,
+        default: false,
+      },
+      href: {
+        type: String,
+      },
+      label: {
+        type: String,
         required: true,
+      },
+      to: {
+        type: [String, Object],
       },
     },
     computed: {
       computedClass () {
-        return [
-          this.isDisabled ? 'menu-text' : null,
-        ].filter(item => !isEmpty(item))
+        const computedClass = []
+
+        if (!this.isLink) {
+          computedClass.push('menu-text')
+        }
+
+        return computedClass
       },
-      isDisabled () {
-        return get(this.item, 'disabled', false)
+      computedHref () {
+        if (!this.isLink) {
+          return
+        }
+
+        if (this.isRouterLink) {
+          return this.computedRouterHref
+        }
+
+        return this.href
+      },
+      computedType () {
+        return get(this.item, 'type', 'link')
+      },
+      isLink () {
+        if (this.disabled) {
+          return false
+        }
+
+        return !isEmpty(this.href) || this.isRouterLink
       },
     },
   }

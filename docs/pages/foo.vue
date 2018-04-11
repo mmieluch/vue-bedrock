@@ -32,10 +32,12 @@
     data () {
       return {
         menuItems: [
-          { label: 'One' },
-          { label: 'Two' },
-          { label: 'Three' },
+          { label: 'One', to: '/one' },
+          { label: 'Two', to: { path: '/two' } },
+          { label: 'Three', to: { name: 'three' } },
           { label: 'Four', disabled: true },
+          { label: 'Five', href: '/' },
+          { label: 'Six', href: '/', disabled: true },
         ],
       }
     },

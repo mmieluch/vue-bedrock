@@ -2,7 +2,7 @@
   <ul class="menu">
     <vb-menu-item v-for="item in computedItems"
                   :key="item.vbKey"
-                  :item="item" />
+                  v-bind="item" />
   </ul>
 </template>
 
