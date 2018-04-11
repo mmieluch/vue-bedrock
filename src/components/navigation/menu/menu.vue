@@ -10,6 +10,8 @@
   import vbMenuItem from './menu-item.vue'
   import uuid from 'uuid'
   import merge from 'lodash.merge'
+  import get from 'lodash.get'
+  import isEmpty from 'lodash.isempty'
 
   const ALIGNMENTS = ['left', 'center', 'right']
 
@@ -24,6 +26,10 @@
         default: 'left',
         validator: value => ALIGNMENTS.includes(value),
       },
+      expanded: {
+        type: Boolean,
+        default: false,
+      },
       items: {
         type: Array,
         default: () => {[]},
@@ -31,19 +37,26 @@
     },
     computed: {
       computedClass () {
-        const computedClass = ['menu']
-
-        if (this.align !== 'left') {
-          computedClass.push(`align-${this.align}`)
-        }
-
-        return computedClass
+        return [
+          'menu',
+          this.align !== 'left' ? `align-${this.align}` : null,
+          this.isExpanded ? 'expanded' : null,
+        ].filter(item => !isEmpty(item))
+      },
+      isExpanded () {
+        return (
+          this.expanded === true ||
+          get(this.$options.propsData, 'expanded') === ''
+        )
       },
       computedItems () {
         return this.items.map(item => merge({}, item, {
           vbKey: uuid.v4(),
         }))
       },
+    },
+    beforeCreate () {
+      console.log(this)
     },
   }
 </script>

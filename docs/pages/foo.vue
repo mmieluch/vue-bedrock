@@ -11,7 +11,7 @@
       </div>
       <div class="grid-x grid-margin-x">
         <div class="cell">
-          <vb-menu align="right" :items="menuItems" />
+          <vb-menu :items="menuItems" expanded />
         </div>
       </div>
     </div>
