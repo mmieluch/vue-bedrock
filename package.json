@@ -14,8 +14,7 @@
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
-    "eslint-plugin-vue": "^2.1.0",
-    "nuxt": "^1.4.0"
+    "eslint-plugin-vue": "^2.1.0"
   },
   "peerDependencies": {
     "vue": "^2.5.8"
@@ -25,6 +24,7 @@
     "docs-gen": "nuxt generate -c docs/nuxt.config.js"
   },
   "dependencies": {
-    "foundation-sites": "^6.4.4-rc1"
+    "foundation-sites": "^6.4.4-rc1",
+    "nuxt": "npm:nuxt-edge"
   }
 }
