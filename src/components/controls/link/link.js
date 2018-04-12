@@ -102,6 +102,7 @@ export default {
   props: propsFactory(),
   render (h, { props, data, parent, children }) {
     const tag = computeTag(props, parent)
+    const href = computeHref(props, tag)
     const eventType = tag === 'router-link' ? 'nativeOn' : 'on'
     const suppliedHandler = (data[eventType] || {}).click
     const handlers = {
@@ -115,7 +116,7 @@ export default {
       ],
       attrs: {
         rel: computeRel(props),
-        href: computeHref(props, tag),
+        href,
         target: props.target,
         tabindex: props.disabled ? '-1' : (data.attrs ? data.attrs.tabindex : null),
         'aria-disabled': (tag === 'a' && props.disabled) ? 'true': null,
