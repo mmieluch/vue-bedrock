@@ -1,79 +1,49 @@
-<template>
-  <ul :class="computedClass">
-    <vb-menu-item v-for="item in computedItems"
-                  :key="item.vbKey"
-                  v-bind="item" />
-  </ul>
-</template>
+import { arrayIncludes } from 'bootstrap-vue/src/utils/array'
 
-<script>
-  import uuid from 'uuid'
-  import merge from 'lodash.merge'
-  import propFromAttrs from '../../../utils/prop-from-attrs'
+const ALIGNMENTS = ['left', 'center', 'right']
 
-  const ALIGNMENTS = ['left', 'center', 'right']
+function computeClassNames (props) {
+  return {
+    menu: true,
 
-  export default {
-    name: 'vbMenu',
-    components: {
-      vbMenuItem: () => import('./menu-item.vue'),
-    },
-    props: {
-      align: {
-        type: String,
-        default: 'left',
-        validator: value => ALIGNMENTS.includes(value),
-      },
-      dropdown: {
-        type: Boolean,
-        default: false,
-      },
-      expanded: {
-        type: Boolean,
-        default: false,
-      },
-      items: {
-        type: Array,
-        default: () => {[]},
-      },
-      simple: {
-        type: Boolean,
-        default: false,
-      },
-      vertical: {
-        type: Boolean,
-        default: false,
-      },
-    },
-    computed: {
-      computedClass () {
-        return {
-          menu: true,
-          'align-center': this.align === 'center',
-          'align-right': this.align === 'right',
-          dropdown: this.isDropdown,
-          expanded: this.isExpanded,
-          simple: this.isSimple,
-          vertical: this.isVertical,
-        }
-      },
-      computedItems () {
-        return this.items.map(item => merge({}, item, {
-          vbKey: uuid.v4(),
-        }))
-      },
-      isDropdown () {
-        return propFromAttrs(this, 'dropdown')
-      },
-      isExpanded () {
-        return propFromAttrs(this, 'expanded')
-      },
-      isSimple () {
-        return propFromAttrs(this, 'simple')
-      },
-      isVertical () {
-        return propFromAttrs(this, 'vertical')
-      },
-    },
+    dropdown: props.dropdown,
+    expanded: props.expanded,
+    simple: props.simple,
+    vertical: props.vertical,
+
+    'align-center': props.align === 'center',
+    'align-right': props.align === 'right',
   }
-</script>
+}
+
+export default {
+  functional: true,
+  render (h, { children, props }) {
+    return h('ul', {
+      class: computeClassNames(props),
+    }, children)
+  },
+  props: {
+    align: {
+      type: String,
+      default: 'left',
+      validator: value => arrayIncludes(ALIGNMENTS, value),
+    },
+    dropdown: {
+      type: Boolean,
+      default: false,
+    },
+    expanded: {
+      type: Boolean,
+      default: false,
+    },
+    simple: {
+      type: Boolean,
+      default: false,
+    },
+    vertical: {
+      type: Boolean,
+      default: false,
+    },
+  },
+}

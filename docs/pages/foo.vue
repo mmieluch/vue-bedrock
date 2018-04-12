@@ -11,7 +11,10 @@
       </div>
       <div class="grid-x grid-margin-x">
         <div class="cell">
-          <vb-menu :items="menuItems" dropdown />
+          <vb-menu>
+            <li>foo</li>
+            <li>bar</li>
+          </vb-menu>
         </div>
       </div>
     </div>
@@ -21,25 +24,15 @@
 <script>
   import vbCallout from '../../src/components/containers/callout/callout'
   import vbMenu from '../../src/components/navigation/menu/menu'
+  import vbLink from '../../src/components/controls/link/link'
 
   export default {
     name: 'Foo',
     layout: 'default',
     components: {
       vbCallout,
+      vbLink,
       vbMenu,
-    },
-    data () {
-      return {
-        menuItems: [
-          { label: 'One', to: '/one' },
-          { label: 'Two', to: { path: '/two' } },
-          { label: 'Three', to: { name: 'three' } },
-          { label: 'Four', disabled: true },
-          { label: 'Five', href: '/' },
-          { label: 'Six', href: '/', disabled: true },
-        ],
-      }
     },
   }
 </script>

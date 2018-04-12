@@ -13,10 +13,11 @@
   },
   "dependencies": {
     "foundation-sites": "^6.4.4-rc1",
+    "lodash.castarray": "^4.4.0",
     "lodash.get": "^4.4.2",
+    "lodash.has": "^4.5.2",
     "lodash.isempty": "^4.4.0",
-    "lodash.merge": "^4.6.1",
-    "uuid": "^3.2.1"
+    "lodash.merge": "^4.6.1"
   },
   "devDependencies": {
     "bootstrap-vue": "^2.0.0-rc.6",
@@ -28,6 +29,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^2.1.0",
     "nuxt": "npm:nuxt-edge",
+    "vue-functional-data-merge": "^2.0.6",
     "webpack-node-externals": "^1.7.2"
   },
   "peerDependencies": {

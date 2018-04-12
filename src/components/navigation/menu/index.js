@@ -1,5 +1,5 @@
-import vbMenu from './menu.vue'
-import vbMenuItem from './menu-item.vue'
+import vbMenu from './menu'
+import vbMenuItem from './menu-item'
 import { registerComponent, vueUse } from '../../../utils/plugins'
 
 const VuePlugin = {
