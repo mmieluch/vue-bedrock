@@ -22,7 +22,7 @@ export function propsFactory () {
 export const props = propsFactory()
 
 function computeTag (props, parent) {
-  return has(parent, '$router') && props.to && !props.disabled ? 'router-link' : 'a'
+  return parent.$router && props.to && !props.disabled ? 'router-link' : 'a'
 }
 
 function computeRel ({ target, rel }) {
