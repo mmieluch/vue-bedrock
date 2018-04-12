@@ -3,17 +3,8 @@
     <div class="grid-container">
       <div class="grid-x grid-margin-x">
         <div class="cell">
-          <vb-callout coloring="success" size="large" :closable="true">
-            <h5>Foo</h5>
-            <p>bar</p>
-          </vb-callout>
-        </div>
-      </div>
-      <div class="grid-x grid-margin-x">
-        <div class="cell">
           <vb-menu>
-            <li>foo</li>
-            <li>bar</li>
+            <vb-menu-item :to="to">One</vb-menu-item>
           </vb-menu>
         </div>
       </div>
@@ -22,17 +13,27 @@
 </template>
 
 <script>
-  import vbCallout from '../../src/components/containers/callout/callout'
   import vbMenu from '../../src/components/navigation/menu/menu'
   import vbLink from '../../src/components/controls/link/link'
+  import vbMenuItem from '../../src/components/navigation/menu/menu-item'
 
   export default {
     name: 'Foo',
     layout: 'default',
     components: {
-      vbCallout,
       vbLink,
       vbMenu,
+      vbMenuItem,
+    },
+    data () {
+      return {
+        to: {
+          name: 'foo',
+          query: {
+            foo: 'bar',
+          },
+        },
+      }
     },
   }
 </script>
