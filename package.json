@@ -17,7 +17,8 @@
     "lodash.get": "^4.4.2",
     "lodash.has": "^4.5.2",
     "lodash.isempty": "^4.4.0",
-    "lodash.merge": "^4.6.1"
+    "lodash.merge": "^4.6.1",
+    "popper.js": "^1.14.3"
   },
   "devDependencies": {
     "bootstrap-vue": "^2.0.0-rc.6",
