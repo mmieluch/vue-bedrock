@@ -7,10 +7,8 @@
 </template>
 
 <script>
-  import vbMenuItem from './menu-item.vue'
   import uuid from 'uuid'
   import merge from 'lodash.merge'
-  import get from 'lodash.get'
   import propFromAttrs from '../../../utils/prop-from-attrs'
 
   const ALIGNMENTS = ['left', 'center', 'right']
@@ -18,7 +16,7 @@
   export default {
     name: 'vbMenu',
     components: {
-      vbMenuItem,
+      vbMenuItem: () => import('./menu-item.vue'),
     },
     props: {
       align: {
