@@ -3,13 +3,9 @@
     <div class="grid-container">
       <div class="grid-x grid-margin-x">
         <div class="cell">
-          <vb-menu>
+          <vb-menu class="foobar">
             <vb-menu-item :to="to">One</vb-menu-item>
             <vb-menu-text>Text</vb-menu-text>
-            <vb-menu-item-dropdown>
-              <vb-menu-item :to="to">One</vb-menu-item>
-              <vb-menu-text>Text</vb-menu-text>
-            </vb-menu-item-dropdown>
           </vb-menu>
         </div>
       </div>

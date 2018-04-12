@@ -1,11 +1,10 @@
 import { arrayIncludes } from 'bootstrap-vue/src/utils/array'
+import { mergeData } from 'vue-functional-data-merge'
 
 const ALIGNMENTS = ['left', 'center', 'right']
 
 function computeClassNames (props) {
   return {
-    menu: true,
-
     dropdown: props.dropdown,
     expanded: props.expanded,
     simple: props.simple,
@@ -18,10 +17,13 @@ function computeClassNames (props) {
 
 export default {
   functional: true,
-  render (h, { children, props }) {
-    return h('ul', {
+  render (h, { children, data, props }) {
+    const componentData = {
+      staticClass: 'menu',
       class: computeClassNames(props),
-    }, children)
+    }
+
+    return h('ul', mergeData(data, componentData), children)
   },
   props: {
     align: {
