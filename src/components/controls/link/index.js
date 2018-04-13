@@ -1,9 +1,9 @@
-import vbCallout from './callout'
+import vbLink from './link'
 import { registerComponent, vueUse } from '../../../utils/plugins'
 
 const VuePlugin = {
   install (Vue) {
-    registerComponent(Vue, 'vbCallout', vbCallout)
+    registerComponent(Vue, 'vbLink', vbLink)
   }
 }
 
