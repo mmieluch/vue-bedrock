@@ -14,7 +14,7 @@ export function propsFactory () {
 
   // Assign Foundation-specific CSS class names.
   props.activeClass.default = 'is-active'
-  props.exactActiveClass = 'is-active'
+  props.exactActiveClass.default = 'is-active'
 
   return props
 }
