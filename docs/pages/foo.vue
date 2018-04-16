@@ -22,7 +22,7 @@
 </template>
 
 <script>
-  import vbFormInput from '../../src/components/general/forms/form-input'
+  import vbFormInput from '../../src/components/general/forms/form-input/form-input'
   import vbMenu from '../../src/components/navigation/menu/menu'
   import vbLink from '../../src/components/controls/link/link'
   import vbMenuItem from '../../src/components/navigation/menu/menu-item'

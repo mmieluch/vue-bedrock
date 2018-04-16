@@ -1,6 +1,6 @@
 import { arrayIncludes } from 'bootstrap-vue/src/utils/array'
-import FormMixin from '../../../mixins/form'
-import IdMixin from '../../../mixins/id'
+import FormMixin from '../../../../mixins/form'
+import IdMixin from '../../../../mixins/id'
 
 const TYPES = [
   'text', 'date', 'datetime', 'datetime-local', 'email', 'month', 'number', 'password', 'search',
