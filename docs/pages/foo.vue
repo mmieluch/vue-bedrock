@@ -13,7 +13,7 @@
       <div class="grid-x">
         <div class="cell">
           <form>
-            <vb-form-input v-bind="input" />
+            <vb-form-input v-bind="input" v-model="inputModel" />
           </form>
         </div>
       </div>
@@ -52,6 +52,7 @@
           state: true,
           type: 'text',
         },
+        inputModel: 'foo',
         to: {
           name: 'foo',
           query: {

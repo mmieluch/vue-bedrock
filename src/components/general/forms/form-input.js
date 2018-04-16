@@ -1,4 +1,5 @@
 import { arrayIncludes } from 'bootstrap-vue/src/utils/array'
+import FormMixin from '../../../mixins/form'
 import IdMixin from '../../../mixins/id'
 
 const TYPES = [
@@ -13,7 +14,7 @@ export default {
       attrs: {
         autocomplete: this.$props.autocomplete,
         disabled: this.$props.disabled,
-        id: this.safeId(),
+        id: this.$props.id,
         name: this.$props.type,
         placeholder: this.$props.placeholder,
         readonly: this.$props.readonly,
@@ -25,29 +26,18 @@ export default {
   },
   mixins: [
     IdMixin,
+    FormMixin,
   ],
   props: {
     autocomplete: {
       type: String,
       default: null,
     },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    name: {
-      type: String,
-      default: '',
-    },
     placeholder: {
       type: String,
       default: '',
     },
     readonly: {
-      type: Boolean,
-      default: false,
-    },
-    required: {
       type: Boolean,
       default: false,
     },
