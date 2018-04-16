@@ -9,11 +9,20 @@
           </vb-menu>
         </div>
       </div>
+
+      <div class="grid-x">
+        <div class="cell">
+          <form>
+            <vb-form-input v-bind="input" />
+          </form>
+        </div>
+      </div>
     </div>
   </article>
 </template>
 
 <script>
+  import vbFormInput from '../../src/components/general/forms/form-input'
   import vbMenu from '../../src/components/navigation/menu/menu'
   import vbLink from '../../src/components/controls/link/link'
   import vbMenuItem from '../../src/components/navigation/menu/menu-item'
@@ -24,6 +33,7 @@
     name: 'Foo',
     layout: 'default',
     components: {
+      vbFormInput,
       vbLink,
       vbMenu,
       vbMenuItem,
@@ -32,6 +42,12 @@
     },
     data () {
       return {
+        input: {
+          disabled: false,
+          name: 'test',
+          required: true,
+          type: 'text',
+        },
         to: {
           name: 'foo',
           query: {
