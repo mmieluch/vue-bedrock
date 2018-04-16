@@ -38,7 +38,6 @@ const renderOption = function (h, option, index) {
 export default {
   render (h) {
     const options = this.computedOptions.map((option, index) => renderOption(h, option, index))
-    console.log(this.computedSelectSize)
 
     return h('select', {
       attrs: {
