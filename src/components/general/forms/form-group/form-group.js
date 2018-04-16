@@ -91,6 +91,9 @@ export default {
       type: String,
       default: '',
     },
+    labelClass: {
+      type: [Array, String],
+    },
     labelCols: {
       type: Number,
       default: 3,
@@ -115,11 +118,27 @@ export default {
   },
   computed: {
     computedLabelClassNames () {
-      return [
+      const classNames = [
         `text-${this.labelTextAlign}`,
-        this.labelMiddle ? 'middle' : null,
-        !this.state ? 'is-invalid-label' : null,
       ]
+
+      if (Array.isArray(this.labelClass)) {
+        classNames.push(...this.labelClass)
+      }
+
+      if (typeof this.labelClass === 'string') {
+        classNames.push(...this.labelClass.split(' '))
+      }
+
+      if (this.labelMiddle) {
+        classNames.push('middle')
+      }
+
+      if (this.state === false) {
+        classNames.push('is-invalid-label')
+      }
+
+      return classNames
     },
     computedLabelColsClassNames () {
       return [

@@ -16,6 +16,7 @@
                          label="Foo"
                          label-for="fooInput"
                          :horizontal="true"
+                         :label-class="['foo', 'bar']"
                          :label-cols="2"
                          label-text-align="right"
                          :label-middle="true"
