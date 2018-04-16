@@ -11,6 +11,7 @@ export default {
   render (h) {
     return h('input', {
       attrs: {
+        autocomplete: this.$props.autocomplete,
         disabled: this.$props.disabled,
         id: this.safeId(),
         name: this.$props.type,
@@ -26,6 +27,10 @@ export default {
     IdMixin,
   ],
   props: {
+    autocomplete: {
+      type: String,
+      default: null,
+    },
     disabled: {
       type: Boolean,
       default: false,

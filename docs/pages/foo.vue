@@ -43,12 +43,13 @@
     data () {
       return {
         input: {
+          autocomplete: null,
           disabled: false,
           name: 'test',
           placeholder: 'foobar',
-          readonly: true,
+          readonly: false,
           required: true,
-          state: false,
+          state: true,
           type: 'text',
         },
         to: {
