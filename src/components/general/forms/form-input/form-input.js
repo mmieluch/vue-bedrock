@@ -15,7 +15,7 @@ export default {
         autocomplete: this.autocomplete,
         disabled: this.disabled,
         id: this.safeId(),
-        name: this.type,
+        name: this.name,
         placeholder: this.placeholder,
         readonly: this.readonly,
         required: this.required,
