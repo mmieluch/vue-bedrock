@@ -45,7 +45,9 @@
         input: {
           disabled: false,
           name: 'test',
+          placeholder: 'foobar',
           required: true,
+          state: false,
           type: 'text',
         },
         to: {

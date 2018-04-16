@@ -14,9 +14,11 @@ export default {
         disabled: this.$props.disabled,
         id: this.safeId(),
         name: this.$props.type,
+        placeholder: this.$props.placeholder,
         required: this.$props.required,
         type: this.$props.type,
       },
+      class: this.computedClass,
     })
   },
   mixins: [
@@ -31,19 +33,29 @@ export default {
       type: String,
       default: '',
     },
+    placeholder: {
+      type: String,
+      default: '',
+    },
     required: {
       type: Boolean,
       default: false,
     },
     state: {
       type: Boolean,
-      default: null,
+      default: true,
     },
     type: {
       type: String,
       default: 'text',
       validator: value => arrayIncludes(TYPES, value),
     },
-
+  },
+  computed: {
+    computedClass () {
+      return {
+        'is-invalid-input': !this.$props.state,
+      }
+    },
   },
 }
