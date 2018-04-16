@@ -17,11 +17,26 @@
           </form>
         </div>
       </div>
+
+      <div class="grid-x">
+        <div class="cell">
+          <vb-form-group class="grid-padding-x"
+                         label="Foo"
+                         label-for="fooInput"
+                         :horizontal="true"
+                         :label-cols="2"
+                         label-text-align="right"
+                         :label-middle="true">
+            <vb-form-input id="fooInput" />
+          </vb-form-group>
+        </div>
+      </div>
     </div>
   </article>
 </template>
 
 <script>
+  import vbFormGroup from '../../src/components/general/forms/form-group/form-group'
   import vbFormInput from '../../src/components/general/forms/form-input/form-input'
   import vbMenu from '../../src/components/navigation/menu/menu'
   import vbLink from '../../src/components/controls/link/link'
@@ -33,6 +48,7 @@
     name: 'Foo',
     layout: 'default',
     components: {
+      vbFormGroup,
       vbFormInput,
       vbLink,
       vbMenu,
