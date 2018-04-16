@@ -46,6 +46,7 @@
           disabled: false,
           name: 'test',
           placeholder: 'foobar',
+          readonly: true,
           required: true,
           state: false,
           type: 'text',

@@ -15,6 +15,7 @@ export default {
         id: this.safeId(),
         name: this.$props.type,
         placeholder: this.$props.placeholder,
+        readonly: this.$props.readonly,
         required: this.$props.required,
         type: this.$props.type,
       },
@@ -36,6 +37,10 @@ export default {
     placeholder: {
       type: String,
       default: '',
+    },
+    readonly: {
+      type: Boolean,
+      default: false,
     },
     required: {
       type: Boolean,
