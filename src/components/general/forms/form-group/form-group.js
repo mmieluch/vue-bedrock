@@ -19,9 +19,46 @@ export default {
       class: this.computedLabelColsClassNames,
     }, [label])
 
+    const renderDescription = function () {
+      if (this.$slots.description) {
+        return this.$slots.description
+      }
+
+      if (this.description && typeof this.description === 'string' && this.description.length) {
+        return h('p', {
+          class: ['help-text'],
+          domProps: {
+            innerHTML: this.description,
+          },
+        })
+      }
+    }.bind(this)
+
+    const renderInvalidFeedback = function () {
+      if (this.$slots.invalidFeedback) {
+        return this.$slots.invalidFeedback
+      }
+
+      if (
+        typeof this.invalidFeedback === 'string' &&
+        this.invalidFeedback.length
+      ) {
+        return h('p', {
+          class: ['form-error', 'is-visible'],
+          domProps: {
+            innerHTML: this.invalidFeedback,
+          },
+        })
+      }
+    }.bind(this)
+
     const formControlCol = h('div', {
       class: ['cell', 'auto'],
-    }, [this.$slots.default])
+    }, [
+      this.$slots.default,
+      this.state === false ? renderInvalidFeedback() : false,
+      renderDescription(),
+    ])
 
     return h(
       'div', {
@@ -40,9 +77,15 @@ export default {
       type: String,
       default: 'medium',
     },
+    description: {
+      type: String,
+    },
     horizontal: {
       type: Boolean,
       default: false,
+    },
+    invalidFeedback: {
+      type: String,
     },
     label: {
       type: String,
@@ -65,12 +108,17 @@ export default {
       default: 'left',
       validator: value => arrayIncludes(LABEL_ALIGNMENTS, value),
     },
+    state: {
+      type: Boolean,
+      default: true,
+    },
   },
   computed: {
     computedLabelClassNames () {
       return [
         `text-${this.labelTextAlign}`,
         this.labelMiddle ? 'middle' : null,
+        !this.state ? 'is-invalid-label' : null,
       ]
     },
     computedLabelColsClassNames () {

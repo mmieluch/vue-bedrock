@@ -12,22 +12,17 @@
 
       <div class="grid-x">
         <div class="cell">
-          <form>
-            <vb-form-input v-bind="input" v-model="inputModel" />
-          </form>
-        </div>
-      </div>
-
-      <div class="grid-x">
-        <div class="cell">
           <vb-form-group class="grid-padding-x"
                          label="Foo"
                          label-for="fooInput"
                          :horizontal="true"
                          :label-cols="2"
                          label-text-align="right"
-                         :label-middle="true">
-            <vb-form-input id="fooInput" />
+                         :label-middle="true"
+                         description="Description from a prop"
+                         :state="false"
+                         invalid-feedback="This field is required">
+            <vb-form-input v-bind="input" v-model="inputModel" />
           </vb-form-group>
         </div>
       </div>
@@ -61,11 +56,12 @@
         input: {
           autocomplete: null,
           disabled: false,
+          id: 'fooInput',
           name: 'test',
           placeholder: 'foobar',
           readonly: false,
           required: true,
-          state: true,
+          state: false,
           type: 'text',
         },
         inputModel: 'foo',
