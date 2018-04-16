@@ -27,6 +27,14 @@
           </vb-form-group>
         </div>
       </div>
+
+      <div class="grid-x">
+        <div class="cell">
+          <vb-form-select v-bind="selectProps" v-model="selectModel">
+            <option slot="first" :value="null">Select something</option>
+          </vb-form-select>
+        </div>
+      </div>
     </div>
   </article>
 </template>
@@ -34,6 +42,7 @@
 <script>
   import vbFormGroup from '../../src/components/general/forms/form-group/form-group'
   import vbFormInput from '../../src/components/general/forms/form-input/form-input'
+  import vbFormSelect from '../../src/components/general/forms/form-select/form-select'
   import vbMenu from '../../src/components/navigation/menu/menu'
   import vbLink from '../../src/components/controls/link/link'
   import vbMenuItem from '../../src/components/navigation/menu/menu-item'
@@ -46,6 +55,7 @@
     components: {
       vbFormGroup,
       vbFormInput,
+      vbFormSelect,
       vbLink,
       vbMenu,
       vbMenuItem,
@@ -66,6 +76,21 @@
           type: 'text',
         },
         inputModel: 'foo',
+        selectModel: 3,
+        selectProps: {
+          disabled: false,
+          id: 'fooSelect',
+          name: 'foo-select',
+          options: [
+            { value: 0, label: 'Zero' },
+            { value: 1, label: 'One' },
+            { value: 2, label: 'Two' },
+            { value: 3, label: 'Three' },
+          ],
+          multiple: true,
+          placeholder: 'Foo Select',
+          size: 4,
+        },
         to: {
           name: 'foo',
           query: {

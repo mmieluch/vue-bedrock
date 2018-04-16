@@ -1,4 +1,5 @@
 import { arrayIncludes } from 'bootstrap-vue/src/utils/array'
+import FormControlStateMixin from '../../../../mixins/form-control-state'
 import FormMixin from '../../../../mixins/form'
 import IdMixin from '../../../../mixins/id'
 
@@ -8,7 +9,6 @@ const TYPES = [
 ]
 
 export default {
-  name: 'vbFormInput',
   render (h) {
     return h('input', {
       attrs: {
@@ -33,8 +33,9 @@ export default {
     })
   },
   mixins: [
-    IdMixin,
+    FormControlStateMixin,
     FormMixin,
+    IdMixin,
   ],
   props: {
     autocomplete: {
@@ -50,10 +51,6 @@ export default {
     readonly: {
       type: Boolean,
       default: false,
-    },
-    state: {
-      type: Boolean,
-      default: true,
     },
     type: {
       type: String,
@@ -71,9 +68,9 @@ export default {
   },
   computed: {
     computedClass () {
-      return {
-        'is-invalid-input': !this.state,
-      }
+      return [
+        this.formControlStateClass,
+      ]
     },
   },
   methods: {
