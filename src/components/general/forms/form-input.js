@@ -12,16 +12,17 @@ export default {
   render (h) {
     return h('input', {
       attrs: {
-        autocomplete: this.$props.autocomplete,
-        disabled: this.$props.disabled,
-        id: this.$props.id,
-        name: this.$props.type,
-        placeholder: this.$props.placeholder,
-        readonly: this.$props.readonly,
-        required: this.$props.required,
-        type: this.$props.type,
+        autocomplete: this.autocomplete,
+        disabled: this.disabled,
+        id: this.safeId(),
+        name: this.type,
+        placeholder: this.placeholder,
+        readonly: this.readonly,
+        required: this.required,
+        type: this.type,
       },
       class: this.computedClass,
+      ref: 'input',
     })
   },
   mixins: [
@@ -54,7 +55,7 @@ export default {
   computed: {
     computedClass () {
       return {
-        'is-invalid-input': !this.$props.state,
+        'is-invalid-input': !this.state,
       }
     },
   },
