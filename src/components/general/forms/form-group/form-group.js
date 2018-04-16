@@ -3,6 +3,8 @@ import { arrayIncludes } from 'bootstrap-vue/src/utils/array'
 
 const LABEL_ALIGNMENTS = ['left', 'center', 'right']
 
+const GUTTER_TYPES = ['margin', 'padding']
+
 export default {
   name: 'vbFormGroup',
   render (h) {
@@ -62,7 +64,7 @@ export default {
 
     return h(
       'div', {
-        class: ['vb-form-group', 'grid-x'],
+        class: this.computedClass,
       }, [
         labelCol,
         formControlCol,
@@ -79,6 +81,11 @@ export default {
     },
     description: {
       type: String,
+    },
+    gutters: {
+      type: String,
+      default: null,
+      validator: value => arrayIncludes(GUTTER_TYPES, value),
     },
     horizontal: {
       type: Boolean,
@@ -117,6 +124,23 @@ export default {
     },
   },
   computed: {
+    computedClass () {
+      const classNames = ['grid-x']
+
+      switch (this.gutters) {
+        case 'margin':
+          classNames.push('grid-margin-x')
+          break
+        case 'padding':
+          classNames.push('grid-padding-x')
+          break
+        case null:
+        default:
+          break
+      }
+
+      return classNames
+    },
     computedLabelClassNames () {
       const classNames = [
         `text-${this.labelTextAlign}`,
