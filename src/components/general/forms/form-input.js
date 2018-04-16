@@ -22,6 +22,13 @@ export default {
         type: this.type,
       },
       class: this.computedClass,
+      domProps: {
+        value: this.localValue,
+      },
+      on: {
+        input: this.onInput,
+        change: this.onChange,
+      },
       ref: 'input',
     })
   },
@@ -32,7 +39,9 @@ export default {
   props: {
     autocomplete: {
       type: String,
-      default: null,
+    },
+    formatter: {
+      type: Function,
     },
     placeholder: {
       type: String,
@@ -51,11 +60,54 @@ export default {
       default: 'text',
       validator: value => arrayIncludes(TYPES, value),
     },
+    value: {
+      default: null,
+    },
+  },
+  data () {
+    return {
+      localValue: this.value,
+    }
   },
   computed: {
     computedClass () {
       return {
         'is-invalid-input': !this.state,
+      }
+    },
+  },
+  methods: {
+    format (value, event) {
+      if (this.formatter) {
+        const formattedValue = this.formatter(value, event)
+
+        if (formattedValue !== value) {
+          return formattedValue
+        }
+      }
+
+      return value
+    },
+    onChange (event) {
+      this.localValue = this.format(event.target.value, event)
+
+      this.$emit('change', this.localValue)
+    },
+    onInput (event) {
+      const value = event.target.value
+
+      this.localValue = this.format(value, event)
+    },
+  },
+  watch: {
+    value (current, prev) {
+      if (current !== prev) {
+        this.localValue = current
+      }
+    },
+    localValue (current, prev) {
+      if (current !== prev) {
+        this.$emit('input', current)
       }
     },
   },
