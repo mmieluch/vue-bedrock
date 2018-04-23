@@ -49,4 +49,7 @@ export default {
     },
     extractCSS: true,
   },
+  css: [
+    'foundation-sites/dist/css/foundation.css',
+  ],
 }
