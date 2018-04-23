@@ -76,7 +76,7 @@
           type: 'text',
         },
         inputModel: 'foo',
-        selectModel: 3,
+        selectModel: [0, 3],
         selectProps: {
           disabled: false,
           id: 'fooSelect',
