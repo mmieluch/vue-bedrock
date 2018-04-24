@@ -1,38 +1,9 @@
 <template>
   <article>
     <div class="grid-container">
-      <div class="grid-x grid-margin-x">
-        <div class="cell">
-          <vb-menu class="foobar">
-            <vb-menu-item :to="to">One</vb-menu-item>
-            <vb-menu-text>Text</vb-menu-text>
-          </vb-menu>
-        </div>
-      </div>
-
       <div class="grid-x">
         <div class="cell">
-          <vb-form-group class="grid-padding-x"
-                         label="Foo"
-                         label-for="fooInput"
-                         :horizontal="true"
-                         :label-class="['foo', 'bar']"
-                         :label-cols="2"
-                         label-text-align="right"
-                         :label-middle="true"
-                         description="Description from a prop"
-                         :state="false"
-                         invalid-feedback="This field is required">
-            <vb-form-input v-bind="input" v-model="inputModel" />
-          </vb-form-group>
-        </div>
-      </div>
-
-      <div class="grid-x">
-        <div class="cell">
-          <vb-form-select v-bind="selectProps" v-model="selectModel">
-            <option slot="first" :value="null">Select something</option>
-          </vb-form-select>
+          <vb-pagination v-bind="pagination" />
         </div>
       </div>
     </div>
@@ -40,62 +11,20 @@
 </template>
 
 <script>
-  import vbFormGroup from '../../src/components/general/forms/form-group/form-group'
-  import vbFormInput from '../../src/components/general/forms/form-input/form-input'
-  import vbFormSelect from '../../src/components/general/forms/form-select/form-select'
-  import vbMenu from '../../src/components/navigation/menu/menu'
-  import vbLink from '../../src/components/controls/link/link'
-  import vbMenuItem from '../../src/components/navigation/menu/menu-item'
-  import vbMenuItemDropdown from '../../src/components/navigation/menu/menu-item-dropdown'
-  import vbMenuText from '../../src/components/navigation/menu/menu-text'
+  import vbPagination from '../../src/components/navigation/pagination/pagination'
 
   export default {
     name: 'Foo',
     layout: 'default',
     components: {
-      vbFormGroup,
-      vbFormInput,
-      vbFormSelect,
-      vbLink,
-      vbMenu,
-      vbMenuItem,
-      vbMenuItemDropdown,
-      vbMenuText,
+      vbPagination,
     },
     data () {
       return {
-        input: {
-          autocomplete: null,
-          disabled: false,
-          id: 'fooInput',
-          name: 'test',
-          placeholder: 'foobar',
-          readonly: false,
-          required: true,
-          state: false,
-          type: 'text',
-        },
-        inputModel: 'foo',
-        selectModel: [0, 3],
-        selectProps: {
-          disabled: false,
-          id: 'fooSelect',
-          name: 'foo-select',
-          options: [
-            { value: 0, label: 'Zero' },
-            { value: 1, label: 'One' },
-            { value: 2, label: 'Two' },
-            { value: 3, label: 'Three' },
-          ],
-          multiple: true,
-          placeholder: 'Foo Select',
-          size: 4,
-        },
-        to: {
-          name: 'foo',
-          query: {
-            foo: 'bar',
-          },
+        pagination: {
+          perPage: 1,
+          totalRows: 3,
+          value: 6,
         },
       }
     },
