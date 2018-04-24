@@ -1,8 +1,7 @@
-import vbLink from '../../controls/link/link'
-import merge from 'lodash/merge'
+import merge from 'lodash.merge'
 
 // Threshold of limit size when we start/stop showing ellipsis
-const ELLIPSIS_THRESHOLD = 3
+const ELLIPSIS_THRESHOLD = 2
 
 const props = {
   centered: {
@@ -36,6 +35,7 @@ const props = {
   limit: {
     type: Number,
     default: 5,
+    validator: limit => limit % 2 !== 0,
   },
   nextText: {
     type: String,
@@ -148,6 +148,48 @@ function makeEllipsis () {
   })
 }
 
+function makePageButton (pageNum) {
+  const vm = this
+  const h = this.$createElement
+  const isCurrent = this.isActive(pageNum)
+  let children = []
+
+  if (isCurrent) {
+    children.push(h('span', {
+      class: 'show-for-sr',
+      domProps: {
+        innerHTML: `You're on page `,
+      },
+    }))
+    children.push(h('span', {
+      domProps: {
+        innerHTML: pageNum,
+      },
+    }))
+  } else {
+    children.push(h('a', {
+      attrs: {
+        'aria-label': `Page ${pageNum}`,
+        href: '#',
+      },
+      domProps: {
+        innerHTML: pageNum,
+      },
+      on: {
+        click (event) {
+          vm.onClick(pageNum, event)
+        },
+      },
+    }))
+  }
+
+  return h('li', {
+    class: {
+      current: isCurrent,
+    },
+  }, children)
+}
+
 export default {
   name: 'vbPagination',
   render (h) {
@@ -155,7 +197,13 @@ export default {
 
     buttons.push(this.hideGoToEndButtons ? h(false) : makeExtremes.call(this, 'first'))
     buttons.push(this.hideGoToEndButtons ? h(false) : makePrevOrNext.call(this, 'prev'))
+    buttons.push(this.showFirstDots ? makeEllipsis.call(this) : h(false))
 
+    this.pageList.forEach(pageNum => {
+      buttons.push(makePageButton.call(this, pageNum))
+    }, this)
+
+    buttons.push(this.showLastDots ? makeEllipsis.call(this) : h(false))
     buttons.push(this.hideGoToEndButtons ? h(false) : makePrevOrNext.call(this, 'next'))
     buttons.push(this.hideGoToEndButtons ? h(false) : makeExtremes.call(this, 'last'))
 
@@ -173,9 +221,6 @@ export default {
       ]),
     ])
   },
-  components: {
-    vbLink,
-  },
   props,
   data () {
     return {
@@ -192,7 +237,37 @@ export default {
       return result < 1 ? 1 : result
     },
     pageList () {
+      let pages = []
+      const limit = this.limit > this.numberOfPages ? this.numberOfPages : this.limit
 
+      let start = this.currentPage - limit
+      let end = this.currentPage + limit
+      let perSide = Math.floor((limit - 1) / 2)
+
+      for (let i = start; i < this.currentPage; i++) {
+        pages.push(i)
+      }
+
+      pages.push(this.currentPage)
+
+      for (let i = this.currentPage + 1; i <= end; i++) {
+        pages.push(i)
+      }
+
+      let startIndex = pages.findIndex(page => page === this.currentPage - perSide)
+
+      while (pages[startIndex] < 1) {
+        startIndex++
+      }
+
+      let endIndex = startIndex + limit
+
+      while (pages[endIndex] > this.numberOfPages + 1) {
+        startIndex--
+        endIndex--
+      }
+
+      return pages.slice(startIndex, endIndex)
     },
     prevPage () {
       return this.currentPage === 1 ? null : this.currentPage - 1
@@ -200,12 +275,16 @@ export default {
     showFirstDots () {
       if (this.hideEllipsis) return false
 
-      if (
-        this.numberOfPages - this.currentPage + 2 < this.limit &&
-        this.limit > ELLIPSIS_THRESHOLD
-      ) return true
+      const numPagesBeforeCurrent = this.currentPage - 1
 
-      return false
+      return numPagesBeforeCurrent > ELLIPSIS_THRESHOLD
+    },
+    showLastDots () {
+      if (this.hideEllipsis) return false
+
+      const numPagesAfterCurrent = this.numberOfPages - this.currentPage
+
+      return numPagesAfterCurrent > ELLIPSIS_THRESHOLD
     },
   },
   methods: {
@@ -216,6 +295,17 @@ export default {
       return {
         href: '#',
       }
+    },
+    normalizeCurrentPage (value) {
+      if (value < 1) {
+        return 1
+      }
+
+      if (value > this.numberOfPages) {
+        return this.numberOfPages
+      }
+
+      return value
     },
     onClick (num, event) {
       event.preventDefault()
@@ -234,5 +324,8 @@ export default {
         this.$emit('change', this.currentPage)
       })
     },
+  },
+  created () {
+    this.currentPage = this.normalizeCurrentPage(this.currentPage)
   },
 }

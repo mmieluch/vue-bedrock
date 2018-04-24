@@ -1,8 +1,10 @@
 <template>
   <article>
     <div class="grid-container">
-      <div class="cell">
-        <vb-pagination v-bind="pagination" />
+      <div class="grid-x">
+        <div class="cell">
+          <vb-pagination v-bind="pagination" />
+        </div>
       </div>
     </div>
   </article>
@@ -20,10 +22,9 @@
     data () {
       return {
         pagination: {
-          limit: 3,
           perPage: 1,
-          totalRows: 20,
-          value: 1,
+          totalRows: 3,
+          value: 6,
         },
       }
     },
