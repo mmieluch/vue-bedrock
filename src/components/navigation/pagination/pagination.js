@@ -213,12 +213,9 @@ export default {
       },
       class: ['pagination', 'vb-pagination'],
     }
-    const navProps = {}
 
-    return h('nav', navProps, [
-      h('ul', listProps, [
-        buttons,
-      ]),
+    return h('ul', listProps, [
+      buttons,
     ])
   },
   props,
