@@ -108,9 +108,6 @@ function makePrevOrNext (dir) {
   const disabled = this.disabled || pageNum === null
 
   let childAttrs = {
-    class: {
-      disabled,
-    },
     domProps: {
       innerHTML: dir === 'prev' ? this.prevText : this.nextText,
     },
@@ -131,7 +128,7 @@ function makePrevOrNext (dir) {
     class: {
       'pagination-previous': dir === 'prev',
       'pagination-next': dir === 'next',
-      'disabled': this.disabled,
+      'disabled': disabled,
     },
   }, [child])
 }
