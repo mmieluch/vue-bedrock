@@ -71,9 +71,6 @@ function makeExtremes (dir) {
   const disabled = this.disabled || this.isActive(pageNum)
 
   let childAttrs = {
-    class: {
-      disabled,
-    },
     domProps: {
       innerHTML: dir === 'first' ? this.firstText : this.lastText
     },
@@ -94,7 +91,7 @@ function makeExtremes (dir) {
     class: {
       'pagination-first': dir === 'first',
       'pagination-last': dir === 'last',
-      'disabled': this.disabled,
+      'disabled': disabled,
     },
   }, [child])
 }
