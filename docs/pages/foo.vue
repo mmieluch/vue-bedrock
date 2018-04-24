@@ -22,6 +22,7 @@
     data () {
       return {
         pagination: {
+          centered: true,
           perPage: 1,
           totalRows: 3,
           value: 6,

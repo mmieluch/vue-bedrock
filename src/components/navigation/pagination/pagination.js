@@ -211,14 +211,15 @@ export default {
       attrs: {
         role: 'menubar',
       },
-      class: ['pagination', 'vb-pagination'],
+      class: {
+        pagination: true,
+        'text-center': this.centered,
+        'vb-pagination': true,
+      },
     }
-    const navProps = {}
 
-    return h('nav', navProps, [
-      h('ul', listProps, [
-        buttons,
-      ]),
+    return h('ul', listProps, [
+      buttons,
     ])
   },
   props,
