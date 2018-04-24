@@ -211,7 +211,11 @@ export default {
       attrs: {
         role: 'menubar',
       },
-      class: ['pagination', 'vb-pagination'],
+      class: {
+        pagination: true,
+        'text-center': this.centered,
+        'vb-pagination': true,
+      },
     }
 
     return h('ul', listProps, [
