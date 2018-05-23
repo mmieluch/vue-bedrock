@@ -17,7 +17,7 @@ export default {
         innerHTML: this.label,
       },
     })
-    const labelCol = h('div', {
+    const labelCol = this.noLabelCol ? h(false) : h('div', {
       class: this.computedLabelColsClassNames,
     }, [label])
 
@@ -117,6 +117,10 @@ export default {
       type: String,
       default: 'left',
       validator: value => arrayIncludes(LABEL_ALIGNMENTS, value),
+    },
+    noLabelCol: {
+      type: Boolean,
+      default: false,
     },
     state: {
       type: Boolean,
