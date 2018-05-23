@@ -1,9 +1,12 @@
-import { registerComponent, vueUse } from '../../../../utils/plugins'
+import { registerComponents, vueUse } from '../../../../utils/plugins'
 import vbFormTextarea from './form-textarea'
 
 const VuePlugin = {
   install (Vue) {
-    registerComponent(Vue, 'vbFormTextarea', vbFormTextarea)
+    registerComponents(Vue, {
+      vbFormTextarea,
+      vbTextarea: vbFormTextarea,
+    })
   }
 }
 
