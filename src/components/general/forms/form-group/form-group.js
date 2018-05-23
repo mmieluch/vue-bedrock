@@ -1,9 +1,11 @@
 import IdMixin from '../../../../mixins/id'
 import { arrayIncludes } from 'bootstrap-vue/src/utils/array'
 
-const LABEL_ALIGNMENTS = ['left', 'center', 'right']
+const COLS_NUM = 12
 
 const GUTTER_TYPES = ['margin', 'padding']
+
+const LABEL_ALIGNMENTS = ['left', 'center', 'right']
 
 export default {
   name: 'vbFormGroup',
@@ -55,7 +57,7 @@ export default {
     }.bind(this)
 
     const formControlCol = h('div', {
-      class: ['cell', 'auto'],
+      class: this.computedInputColClassNames,
     }, [
       this.$slots.default,
       this.state === false ? renderInvalidFeedback() : false,
@@ -144,6 +146,20 @@ export default {
       }
 
       return classNames
+    },
+    computedInputColClassNames () {
+      let cols
+
+      if (this.noLabelCol) {
+        cols = 12
+      } else {
+        cols = this.horizontal ? COLS_NUM - this.labelCols : 12
+      }
+
+      return [
+        'cell',
+        this.horizontal ? `${this.breakpoint}-${cols}` : `small-${COLS_NUM}`
+      ]
     },
     computedLabelClassNames () {
       const classNames = [
