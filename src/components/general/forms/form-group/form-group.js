@@ -66,6 +66,9 @@ export default {
 
     return h(
       'div', {
+        attrs: {
+          id: this.safeId(),
+        },
         class: this.computedClass,
       }, [
         labelCol,
