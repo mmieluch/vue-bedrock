@@ -12,9 +12,16 @@
     "docs-gen": "nuxt generate -c docs/nuxt.config.js"
   },
   "dependencies": {
-    "foundation-sites": "^6.4.4-rc1"
+    "foundation-sites": "^6.4.4-rc1",
+    "lodash.castarray": "^4.4.0",
+    "lodash.get": "^4.4.2",
+    "lodash.has": "^4.5.2",
+    "lodash.isempty": "^4.4.0",
+    "lodash.merge": "^4.6.1",
+    "popper.js": "^1.14.3"
   },
   "devDependencies": {
+    "bootstrap-vue": "^2.0.0-rc.6",
     "caniuse-lite": "^1.0.30000697",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-jest": "^21.3.2",
@@ -22,7 +29,9 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^2.1.0",
-    "nuxt": "npm:nuxt-edge"
+    "nuxt": "npm:nuxt-edge",
+    "vue-functional-data-merge": "^2.0.6",
+    "webpack-node-externals": "^1.7.2"
   },
   "peerDependencies": {
     "vue": "^2.5.8"

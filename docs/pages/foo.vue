@@ -1,12 +1,9 @@
 <template>
   <article>
     <div class="grid-container">
-      <div class="grid-x grid-margin-x">
+      <div class="grid-x">
         <div class="cell">
-          <vb-callout coloring="success" size="large" :closable="true">
-            <h5>Foo</h5>
-            <p>bar</p>
-          </vb-callout>
+          <vb-pagination v-bind="pagination" />
         </div>
       </div>
     </div>
@@ -14,13 +11,23 @@
 </template>
 
 <script>
-  import VbCallout from '../../src/components/containers/callout/callout'
+  import vbPagination from '../../src/components/navigation/pagination/pagination'
 
   export default {
     name: 'Foo',
     layout: 'default',
     components: {
-      VbCallout,
+      vbPagination,
+    },
+    data () {
+      return {
+        pagination: {
+          centered: true,
+          perPage: 1,
+          totalRows: 3,
+          value: 6,
+        },
+      }
     },
   }
 </script>

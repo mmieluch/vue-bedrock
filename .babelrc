@@ -26,5 +26,9 @@
         ]
       ]
     }
-  }
+  },
+  "only": [
+    "node_modules/bootstrap-vue",
+    "src"
+  ]
 }

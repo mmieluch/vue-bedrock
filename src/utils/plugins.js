@@ -15,6 +15,17 @@ export function registerComponent (Vue, name, def) {
 }
 
 /**
+ * Register a group of components as being loaded.
+ * @param {object} Vue
+ * @param {object} components - Object of component definitions.
+ */
+export function registerComponents (Vue, components) {
+  for (let component in components) {
+    registerComponent(Vue, component, components[component])
+  }
+}
+
+/**
  * Install plugin if window.Vue available
  * @param {object} VuePlugin - Plugin definition
  */
