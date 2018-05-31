@@ -47,7 +47,7 @@ export default {
         typeof this.invalidFeedback === 'string' &&
         this.invalidFeedback.length
       ) {
-        return h('p', {
+        return h('div', {
           class: ['form-error', 'is-visible'],
           domProps: {
             innerHTML: this.invalidFeedback,
