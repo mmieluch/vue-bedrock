@@ -11,7 +11,7 @@
 </template>
 
 <script>
-  import vbPagination from '../../src/components/navigation/pagination/pagination'
+  import vbPagination from '../../src/components/pagination/pagination'
 
   export default {
     name: 'Foo',
