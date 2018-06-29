@@ -1,6 +1,6 @@
-import formMixin from '../../../../mixins/form'
-import formControlStateMixin from '../../../../mixins/form-control-state'
-import idMixin from '../../../../mixins/id'
+import formMixin from '../../mixins/form'
+import formControlStateMixin from '../../mixins/form-control-state'
+import idMixin from '../../mixins/id'
 
 export default {
   mixins: [

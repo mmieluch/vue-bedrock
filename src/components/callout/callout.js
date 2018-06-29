@@ -1,5 +1,5 @@
-import { variants } from '../../../settings'
-import vbButtonClose from '../../controls/button-close/button-close'
+import { variants } from '../../settings'
+import vbButtonClose from '../button-close/button-close'
 
 const sizes = ['small', 'large']
 

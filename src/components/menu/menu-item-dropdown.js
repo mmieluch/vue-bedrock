@@ -1,5 +1,5 @@
-import DropdownMixin from '../../../mixins/dropdown'
-import IdMixin from '../../../mixins/id'
+import DropdownMixin from '../../mixins/dropdown'
+import IdMixin from '../../mixins/id'
 import vbMenuItem from './menu-item'
 
 export default {

@@ -1,5 +1,5 @@
 import vbFormInput from './form-input'
-import { registerComponent, vueUse } from '../../../../utils/plugins'
+import { registerComponent, vueUse } from '../../utils/plugins'
 
 const VuePlugin = {
   install (Vue) {

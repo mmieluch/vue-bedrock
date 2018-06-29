@@ -1,4 +1,4 @@
-import IdMixin from '../../../../mixins/id'
+import IdMixin from '../../mixins/id'
 import { arrayIncludes } from 'bootstrap-vue/src/utils/array'
 
 const COLS_NUM = 12
