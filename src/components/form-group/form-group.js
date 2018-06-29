@@ -1,9 +1,11 @@
 import IdMixin from '../../mixins/id'
 import { arrayIncludes } from 'bootstrap-vue/src/utils/array'
 
-const LABEL_ALIGNMENTS = ['left', 'center', 'right']
+const COLS_NUM = 12
 
 const GUTTER_TYPES = ['margin', 'padding']
+
+const LABEL_ALIGNMENTS = ['left', 'center', 'right']
 
 export default {
   name: 'vbFormGroup',
@@ -17,7 +19,7 @@ export default {
         innerHTML: this.label,
       },
     })
-    const labelCol = h('div', {
+    const labelCol = this.noLabelCol ? h(false) : h('div', {
       class: this.computedLabelColsClassNames,
     }, [label])
 
@@ -45,7 +47,7 @@ export default {
         typeof this.invalidFeedback === 'string' &&
         this.invalidFeedback.length
       ) {
-        return h('p', {
+        return h('div', {
           class: ['form-error', 'is-visible'],
           domProps: {
             innerHTML: this.invalidFeedback,
@@ -55,7 +57,7 @@ export default {
     }.bind(this)
 
     const formControlCol = h('div', {
-      class: ['cell', 'auto'],
+      class: this.computedInputColClassNames,
     }, [
       this.$slots.default,
       this.state === false ? renderInvalidFeedback() : false,
@@ -64,6 +66,9 @@ export default {
 
     return h(
       'div', {
+        attrs: {
+          id: this.safeId(),
+        },
         class: this.computedClass,
       }, [
         labelCol,
@@ -118,6 +123,10 @@ export default {
       default: 'left',
       validator: value => arrayIncludes(LABEL_ALIGNMENTS, value),
     },
+    noLabelCol: {
+      type: Boolean,
+      default: false,
+    },
     state: {
       type: Boolean,
       default: true,
@@ -140,6 +149,20 @@ export default {
       }
 
       return classNames
+    },
+    computedInputColClassNames () {
+      let cols
+
+      if (this.noLabelCol) {
+        cols = 12
+      } else {
+        cols = this.horizontal ? COLS_NUM - this.labelCols : 12
+      }
+
+      return [
+        'cell',
+        this.horizontal ? `${this.breakpoint}-${cols}` : `small-${COLS_NUM}`
+      ]
     },
     computedLabelClassNames () {
       const classNames = [
