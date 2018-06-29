@@ -1,6 +1,6 @@
-import FormControlStateMixin from '../../../../mixins/form-control-state'
-import FormMixin from '../../../../mixins/form'
-import IdMixin from '../../../../mixins/id'
+import FormControlStateMixin from '../../mixins/form-control-state'
+import FormMixin from '../../mixins/form'
+import IdMixin from '../../mixins/id'
 
 function isObject (obj) {
   return obj && ({}).toString.call(obj) === '[object Object]'

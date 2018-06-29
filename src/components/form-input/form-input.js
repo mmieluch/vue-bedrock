@@ -1,7 +1,7 @@
 import { arrayIncludes } from 'bootstrap-vue/src/utils/array'
-import FormControlStateMixin from '../../../../mixins/form-control-state'
-import FormMixin from '../../../../mixins/form'
-import IdMixin from '../../../../mixins/id'
+import FormControlStateMixin from '../../mixins/form-control-state'
+import FormMixin from '../../mixins/form'
+import IdMixin from '../../mixins/id'
 
 const TYPES = [
   'text', 'date', 'datetime', 'datetime-local', 'email', 'month', 'number', 'password', 'search',

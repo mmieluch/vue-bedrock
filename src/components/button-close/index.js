@@ -1,5 +1,5 @@
 import vbButtonClose from './button-close'
-import { registerComponent, vueUse } from '../../../utils/plugins'
+import { registerComponent, vueUse } from '../../utils/plugins'
 
 const VuePlugin = {
   install (Vue) {

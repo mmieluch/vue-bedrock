@@ -1,5 +1,5 @@
 import vbLink from './link'
-import { registerComponent, vueUse } from '../../../utils/plugins'
+import { registerComponent, vueUse } from '../../utils/plugins'
 
 const VuePlugin = {
   install (Vue) {

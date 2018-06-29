@@ -1,7 +1,7 @@
 import vbMenu from './menu'
 import vbMenuItem from './menu-item'
 import vbMenuText from './menu-text'
-import { registerComponent, vueUse } from '../../../utils/plugins'
+import { registerComponent, vueUse } from '../../utils/plugins'
 
 const VuePlugin = {
   install (Vue) {
