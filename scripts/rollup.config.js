@@ -20,8 +20,9 @@ if (!fs.existsSync(dist)) {
 // since they are expected to be provided later.
 // We want to include some of them in the build, so we exclude it here.
 const externalExcludes = [
-  'lodash.starpatcase',
+  'lodash.startcase',
   'lodash.get',
+  'lodash.merge',
   'vue-functional-data-merge',
 ]
 
