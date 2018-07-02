@@ -3,7 +3,8 @@ import { registerComponent, vueUse } from '../../utils/plugins'
 
 const VuePlugin = {
   install (Vue) {
-    registerComponent(Vue, 'vbFormInput', FormSelect)
+    registerComponent(Vue, 'vbFormSelect', FormSelect)
+    registerComponent(Vue, 'vbSelect', FormSelect)
   }
 }
 

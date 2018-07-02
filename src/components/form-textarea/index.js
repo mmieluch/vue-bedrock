@@ -4,7 +4,7 @@ import FormTextarea from './form-textarea'
 const VuePlugin = {
   install (Vue) {
     registerComponents(Vue, {
-      vbFormTextarea: FormTextArea,
+      vbFormTextarea: FormTextarea,
       vbTextarea: FormTextarea,
     })
   }
