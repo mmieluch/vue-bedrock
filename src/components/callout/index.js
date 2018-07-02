@@ -1,12 +1,12 @@
 import vbCallout from './callout'
 import { registerComponent, vueUse } from '../../utils/plugins'
 
-const VuePlugin = {
+const CalloutVuePlugin = {
   install (Vue) {
     registerComponent(Vue, 'vbCallout', vbCallout)
   }
 }
 
-vueUse(VuePlugin)
+vueUse(CalloutVuePlugin)
 
-export default VuePlugin
+export default CalloutVuePlugin

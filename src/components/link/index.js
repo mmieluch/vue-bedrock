@@ -1,12 +1,12 @@
 import vbLink from './link'
 import { registerComponent, vueUse } from '../../utils/plugins'
 
-const VuePlugin = {
+const LinkVuePlugin = {
   install (Vue) {
     registerComponent(Vue, 'vbLink', vbLink)
   }
 }
 
-vueUse(VuePlugin)
+vueUse(LinkVuePlugin)
 
-export default VuePlugin
+export default LinkVuePlugin

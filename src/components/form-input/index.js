@@ -1,13 +1,13 @@
 import vbFormInput from './form-input'
 import { registerComponent, vueUse } from '../../utils/plugins'
 
-const VuePlugin = {
+const FormInputVuePlugin = {
   install (Vue) {
     registerComponent(Vue, 'vbFormInput', vbFormInput)
     registerComponent(Vue, 'vbInput', vbFormInput)
   }
 }
 
-vueUse(VuePlugin)
+vueUse(FormInputVuePlugin)
 
-export default VuePlugin
+export default FormInputVuePlugin

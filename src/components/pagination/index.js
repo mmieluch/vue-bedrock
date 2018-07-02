@@ -1,12 +1,12 @@
 import { registerComponent, vueUse } from '../../utils/plugins'
 import vbPagination from './pagination'
 
-const VuePlugin = {
+const PaginationVuePlugin = {
   install (Vue) {
     registerComponent(Vue, 'vbPagination', vbPagination)
   }
 }
 
-vueUse(VuePlugin)
+vueUse(PaginationVuePlugin)
 
-export default VuePlugin
+export default PaginationVuePlugin

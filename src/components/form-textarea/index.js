@@ -1,7 +1,7 @@
 import { registerComponents, vueUse } from '../../utils/plugins'
 import FormTextarea from './form-textarea'
 
-const VuePlugin = {
+const FormTextareaVuePlugin = {
   install (Vue) {
     registerComponents(Vue, {
       vbFormTextarea: FormTextarea,
@@ -10,6 +10,6 @@ const VuePlugin = {
   }
 }
 
-vueUse(VuePlugin)
+vueUse(FormTextareaVuePlugin)
 
-export default VuePlugin
+export default FormTextareaVuePlugin
