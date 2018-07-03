@@ -31,4 +31,25 @@ export default {
       validator: value => arrayIncludes(LABEL_ALIGNMENTS, value),
     },
   },
+  computed: {
+    computedLabelClassNames () {
+      const classNames = [
+        `text-${this.labelTextAlign}`,
+      ]
+
+      if (Array.isArray(this.labelClass)) {
+        classNames.push(...this.labelClass)
+      }
+
+      if (typeof this.labelClass === 'string') {
+        classNames.push(...this.labelClass.split(' '))
+      }
+
+      if (this.state === false) {
+        classNames.push('is-invalid-label')
+      }
+
+      return classNames
+    },
+  },
 }
