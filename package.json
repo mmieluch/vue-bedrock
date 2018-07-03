@@ -12,7 +12,8 @@
   "scripts": {
     "build": "scripts/build",
     "docs-dev": "nuxt dev -c docs/nuxt.config.js",
-    "docs-gen": "nuxt generate -c docs/nuxt.config.js"
+    "docs-gen": "nuxt generate -c docs/nuxt.config.js",
+    "release": "yarn build && standard-version"
   },
   "dependencies": {
     "foundation-sites": "^6.4.4-rc1",
@@ -43,6 +44,7 @@
     "rollup-plugin-css-porter": "^0.1.2",
     "rollup-plugin-node-resolve": "^3.0.2",
     "rollup-plugin-vue": "^4.1.4",
+    "standard-version": "^4.4.0",
     "uglify-es": "^3.3.6",
     "vue-functional-data-merge": "^2.0.6",
     "webpack-node-externals": "^1.7.2"
