@@ -1,6 +1,6 @@
 {
   "name": "vue-bedrock",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Foundation components for Vue",
   "main": "dist/vue-bedrock.common.js",
   "module": "es/index.js",
