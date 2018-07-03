@@ -4,6 +4,8 @@
       <div class="grid-x">
         <div class="cell">
           <Checkbox v-model="checked"
+                    label="foobar"
+                    row-id="foobarRow"
                     :state="false"
                     id="foobar" />
         </div>

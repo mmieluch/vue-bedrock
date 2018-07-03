@@ -42,6 +42,9 @@ export default {
       type: [Array, String],
       default: () => ['grid-x', 'grid-padding-x'],
     },
+    rowId: {
+      type: String,
+    },
   },
   data () {
     return {
@@ -109,6 +112,9 @@ export default {
     },
     renderRow (h, input) {
       return h('div', {
+        attrs: {
+          id: this.rowId,
+        },
         class: ['grid-x', 'grid-padding-x'],
       }, [
         h('div', { class: this.inputColClass }, [input]),
