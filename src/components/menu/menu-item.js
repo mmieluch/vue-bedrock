@@ -1,4 +1,4 @@
-import Link, { propsFactory as linkPropsFactory } from '../../controls/link/link'
+import Link, { propsFactory as linkPropsFactory } from '../link/link'
 
 const props = linkPropsFactory()
 

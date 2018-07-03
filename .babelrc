@@ -13,6 +13,7 @@
       }
     ]
   ],
+  "plugins": ["transform-object-rest-spread"],
   "env": {
     "test": {
       "presets": [
@@ -26,9 +27,5 @@
         ]
       ]
     }
-  },
-  "only": [
-    "node_modules/bootstrap-vue",
-    "src"
-  ]
+  }
 }
