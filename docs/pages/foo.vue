@@ -3,7 +3,9 @@
     <div class="grid-container">
       <div class="grid-x">
         <div class="cell">
-          <vb-pagination v-bind="pagination" />
+          <Checkbox v-model="checked" :state="false" id="foobar">
+            foobar
+          </Checkbox>
         </div>
       </div>
     </div>
@@ -11,22 +13,17 @@
 </template>
 
 <script>
-  import vbPagination from '../../src/components/pagination/pagination'
+  import Checkbox from '../../src/components/form-checkbox/form-checkbox'
 
   export default {
     name: 'Foo',
     layout: 'default',
     components: {
-      vbPagination,
+      Checkbox,
     },
     data () {
       return {
-        pagination: {
-          centered: true,
-          perPage: 1,
-          totalRows: 3,
-          value: 6,
-        },
+        checked: false,
       }
     },
   }
