@@ -12,11 +12,11 @@ export default {
     FormMixin,
     IdMixin,
   ],
-  render (h) {
-    const input = this.renderInput(h)
+  render () {
+    const input = this.renderInput()
 
     if (this.isLabelRenderable) {
-      return this.renderRow(h, input)
+      return this.renderRow(input)
     }
 
     return input
@@ -60,8 +60,8 @@ export default {
     onChange (e) {
       this.localChecked = e.target.checked
     },
-    renderInput (h) {
-      return h('input', {
+    renderInput () {
+      return this.$createElement('input', {
         attrs: {
           'aria-required': this.required ? 'true' : null,
           autocomplete: 'off',
@@ -91,7 +91,7 @@ export default {
         ref: 'check',
       })
     },
-    renderLabel (h) {
+    renderLabel () {
       const labelProps = {
         attrs: {
           for: this.safeId(),
@@ -108,9 +108,11 @@ export default {
         }
       }
 
-      return h('label', labelProps, labelChildren)
+      return this.$createElement('label', labelProps, labelChildren)
     },
-    renderRow (h, input) {
+    renderRow (input) {
+      const h = this.$createElement
+
       return h('div', {
         attrs: {
           id: this.rowId,
@@ -119,8 +121,8 @@ export default {
       }, [
         h('div', { class: this.inputColClass }, [input]),
         h('div', { class: this.labelColClass }, [
-          this.renderLabel(h),
-          this.renderInvalidFeedback(h),
+          this.renderLabel(),
+          this.renderInvalidFeedback(),
         ]),
       ])
     }

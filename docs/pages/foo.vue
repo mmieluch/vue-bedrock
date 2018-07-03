@@ -7,7 +7,8 @@
                     label="foobar"
                     row-id="foobarRow"
                     :state="false"
-                    id="foobar" />
+                    id="foobar"
+                    invalid-feedback="Everything went foobar" />
         </div>
       </div>
     </div>

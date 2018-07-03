@@ -5,7 +5,9 @@ export default {
     },
   },
   methods: {
-    renderInvalidFeedback (h) {
+    renderInvalidFeedback () {
+      const h = this.$createElement
+
       if (this.$slots.invalidFeedback) {
         return this.$slots.invalidFeedback
       }
