@@ -11,9 +11,6 @@ export default {
       default: null,
       validator: value => arrayIncludes(GUTTER_TYPES, value),
     },
-    invalidFeedback: {
-      type: String,
-    },
     label: {
       type: String,
       default: '',
@@ -45,9 +42,7 @@ export default {
         classNames.push(...this.labelClass.split(' '))
       }
 
-      if (this.state === false) {
-        classNames.push('is-invalid-label')
-      }
+      classNames.push(this.labelControlStateClass)
 
       return classNames
     },

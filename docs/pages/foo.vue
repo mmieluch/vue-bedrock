@@ -3,9 +3,9 @@
     <div class="grid-container">
       <div class="grid-x">
         <div class="cell">
-          <Checkbox v-model="checked" :state="false" id="foobar">
-            foobar
-          </Checkbox>
+          <Checkbox v-model="checked"
+                    :state="false"
+                    id="foobar" />
         </div>
       </div>
     </div>

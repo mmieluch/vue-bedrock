@@ -1,4 +1,5 @@
 import FormControlStateMixin from '../../mixins/form-control-state'
+import FormInvalidFeedbackMixin from '../../mixins/form-invalid-feedback'
 import FormLabelMixin from '../../mixins/form-label'
 import IdMixin from '../../mixins/id'
 
@@ -38,29 +39,11 @@ export default {
       }
     }.bind(this)
 
-    const renderInvalidFeedback = function () {
-      if (this.$slots.invalidFeedback) {
-        return this.$slots.invalidFeedback
-      }
-
-      if (
-        typeof this.invalidFeedback === 'string' &&
-        this.invalidFeedback.length
-      ) {
-        return h('div', {
-          class: ['form-error', 'is-visible'],
-          domProps: {
-            innerHTML: this.invalidFeedback,
-          },
-        })
-      }
-    }.bind(this)
-
     const formControlCol = h('div', {
       class: this.computedInputColClassNames,
     }, [
       this.$slots.default,
-      this.state === false ? renderInvalidFeedback() : false,
+      this.state === false ? this.renderInvalidFeedback() : false,
       renderDescription(),
     ])
 
@@ -78,6 +61,7 @@ export default {
   },
   mixins: [
     FormControlStateMixin,
+    FormInvalidFeedbackMixin,
     FormLabelMixin,
     IdMixin,
   ],
