@@ -1,11 +1,8 @@
+import FormControlStateMixin from '../../mixins/form-control-state'
+import FormLabelMixin from '../../mixins/form-label'
 import IdMixin from '../../mixins/id'
-import { arrayIncludes } from 'bootstrap-vue/src/utils/array'
 
 const COLS_NUM = 12
-
-const GUTTER_TYPES = ['margin', 'padding']
-
-const LABEL_ALIGNMENTS = ['left', 'center', 'right']
 
 export default {
   name: 'vbFormGroup',
@@ -77,6 +74,8 @@ export default {
     )
   },
   mixins: [
+    FormControlStateMixin,
+    FormLabelMixin,
     IdMixin,
   ],
   props: {
@@ -87,49 +86,21 @@ export default {
     description: {
       type: String,
     },
-    gutters: {
-      type: String,
-      default: null,
-      validator: value => arrayIncludes(GUTTER_TYPES, value),
-    },
     horizontal: {
       type: Boolean,
       default: false,
-    },
-    invalidFeedback: {
-      type: String,
-    },
-    label: {
-      type: String,
-      default: '',
-    },
-    labelClass: {
-      type: [Array, String],
     },
     labelCols: {
       type: Number,
       default: 3,
     },
-    labelFor: {
-      type: String,
-      default: null,
-    },
     labelMiddle: {
       type: Boolean,
       default: false,
     },
-    labelTextAlign: {
-      type: String,
-      default: 'left',
-      validator: value => arrayIncludes(LABEL_ALIGNMENTS, value),
-    },
     noLabelCol: {
       type: Boolean,
       default: false,
-    },
-    state: {
-      type: Boolean,
-      default: true,
     },
   },
   computed: {
