@@ -9,5 +9,8 @@ export default {
     formControlStateClass () {
       return this.state === false ? 'is-invalid-input' : null
     },
+    labelControlStateClass () {
+      return this.state === false ? 'is-invalid-label' : null
+    },
   },
 }

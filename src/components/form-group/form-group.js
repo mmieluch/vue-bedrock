@@ -1,4 +1,5 @@
 import FormControlStateMixin from '../../mixins/form-control-state'
+import FormInvalidFeedbackMixin from '../../mixins/form-invalid-feedback'
 import FormLabelMixin from '../../mixins/form-label'
 import IdMixin from '../../mixins/id'
 
@@ -11,7 +12,10 @@ export default {
       attrs: {
         for: this.labelFor,
       },
-      class: this.computedLabelClassNames,
+      class: [
+        ...this.computedLabelClassNames,
+        this.labelMiddle ? 'middle' : null,
+      ],
       domProps: {
         innerHTML: this.label,
       },
@@ -35,29 +39,11 @@ export default {
       }
     }.bind(this)
 
-    const renderInvalidFeedback = function () {
-      if (this.$slots.invalidFeedback) {
-        return this.$slots.invalidFeedback
-      }
-
-      if (
-        typeof this.invalidFeedback === 'string' &&
-        this.invalidFeedback.length
-      ) {
-        return h('div', {
-          class: ['form-error', 'is-visible'],
-          domProps: {
-            innerHTML: this.invalidFeedback,
-          },
-        })
-      }
-    }.bind(this)
-
     const formControlCol = h('div', {
       class: this.computedInputColClassNames,
     }, [
       this.$slots.default,
-      this.state === false ? renderInvalidFeedback() : false,
+      this.state === false ? this.renderInvalidFeedback() : false,
       renderDescription(),
     ])
 
@@ -75,6 +61,7 @@ export default {
   },
   mixins: [
     FormControlStateMixin,
+    FormInvalidFeedbackMixin,
     FormLabelMixin,
     IdMixin,
   ],
@@ -134,29 +121,6 @@ export default {
         'cell',
         this.horizontal ? `${this.breakpoint}-${cols}` : `small-${COLS_NUM}`
       ]
-    },
-    computedLabelClassNames () {
-      const classNames = [
-        `text-${this.labelTextAlign}`,
-      ]
-
-      if (Array.isArray(this.labelClass)) {
-        classNames.push(...this.labelClass)
-      }
-
-      if (typeof this.labelClass === 'string') {
-        classNames.push(...this.labelClass.split(' '))
-      }
-
-      if (this.labelMiddle) {
-        classNames.push('middle')
-      }
-
-      if (this.state === false) {
-        classNames.push('is-invalid-label')
-      }
-
-      return classNames
     },
     computedLabelColsClassNames () {
       return [

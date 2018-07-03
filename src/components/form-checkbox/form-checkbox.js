@@ -1,11 +1,13 @@
-import FormLabelMixin from '../../mixins/form-label'
 import FormMixin from '../../mixins/form'
 import FormControlStateMixin from '../../mixins/form-control-state'
+import FormInvalidFeedbackMixin from '../../mixins/form-invalid-feedback'
+import FormLabelMixin from '../../mixins/form-label'
 import IdMixin from '../../mixins/id'
 
 export default {
   mixins: [
     FormControlStateMixin,
+    FormInvalidFeedbackMixin,
     FormLabelMixin,
     FormMixin,
     IdMixin,
@@ -86,12 +88,12 @@ export default {
         ref: 'check',
       })
     },
-    renderLabel (h, slot) {
+    renderLabel (h) {
       const labelProps = {
         attrs: {
           for: this.safeId(),
         },
-        class: this.labelClass,
+        class: this.computedLabelClassNames,
       }
       const labelChildren = []
 
@@ -111,7 +113,8 @@ export default {
       }, [
         h('div', { class: this.inputColClass }, [input]),
         h('div', { class: this.labelColClass }, [
-          this.renderLabel(h)
+          this.renderLabel(h),
+          this.renderInvalidFeedback(h),
         ]),
       ])
     }

@@ -11,9 +11,6 @@ export default {
       default: null,
       validator: value => arrayIncludes(GUTTER_TYPES, value),
     },
-    invalidFeedback: {
-      type: String,
-    },
     label: {
       type: String,
       default: '',
@@ -29,6 +26,25 @@ export default {
       type: String,
       default: 'left',
       validator: value => arrayIncludes(LABEL_ALIGNMENTS, value),
+    },
+  },
+  computed: {
+    computedLabelClassNames () {
+      const classNames = [
+        `text-${this.labelTextAlign}`,
+      ]
+
+      if (Array.isArray(this.labelClass)) {
+        classNames.push(...this.labelClass)
+      }
+
+      if (typeof this.labelClass === 'string') {
+        classNames.push(...this.labelClass.split(' '))
+      }
+
+      classNames.push(this.labelControlStateClass)
+
+      return classNames
     },
   },
 }
