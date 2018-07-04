@@ -4,6 +4,7 @@ import FormCheckbox from './form-checkbox'
 import FormGroup from './form-group'
 import FormInput from './form-input'
 import FormSelect from './form-select'
+import FormTextarea from './form-textarea'
 import Link from './link'
 import Menu from './menu'
 import Pagination from './pagination'
@@ -15,6 +16,7 @@ export {
   FormGroup,
   FormInput,
   FormSelect,
+  FormTextarea,
   Link,
   Menu,
   Pagination,
