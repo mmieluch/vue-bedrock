@@ -42,7 +42,7 @@ export default {
         classNames.push(...this.labelClass.split(' '))
       }
 
-      classNames.push(this.labelControlStateClass)
+      classNames.push(this.formControlLabelStateClass)
 
       return classNames
     },

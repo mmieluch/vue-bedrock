@@ -9,8 +9,11 @@ export default {
     formControlStateClass () {
       return this.state === false ? 'is-invalid-input' : null
     },
-    labelControlStateClass () {
+    formControlLabelStateClass () {
       return this.state === false ? 'is-invalid-label' : null
+    },
+    formControlWrapperStateClass () {
+      return this.state === false ? 'has-invalid-input' : null
     },
   },
 }

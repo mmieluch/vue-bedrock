@@ -3,12 +3,7 @@
     <div class="grid-container">
       <div class="grid-x">
         <div class="cell">
-          <Checkbox v-model="checked"
-                    label="foobar"
-                    row-id="foobarRow"
-                    :state="false"
-                    id="foobar"
-                    invalid-feedback="Everything went foobar" />
+          <FormFile v-model="model" :state="Boolean(model)" placeholder="Choose a file..." />
         </div>
       </div>
     </div>
@@ -16,17 +11,17 @@
 </template>
 
 <script>
-  import Checkbox from '../../src/components/form-checkbox/form-checkbox'
+  import FormFile from '../../src/components/form-file/form-file'
 
   export default {
     name: 'Foo',
     layout: 'default',
     components: {
-      Checkbox,
+      FormFile,
     },
     data () {
       return {
-        checked: false,
+        model: null,
       }
     },
   }
