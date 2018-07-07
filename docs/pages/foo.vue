@@ -3,9 +3,7 @@
     <div class="grid-container">
       <div class="grid-x">
         <div class="cell">
-          <FormFile v-model="model" :state="Boolean(model)">
-            <span slot="label">foobar</span>
-          </FormFile>
+          <FormFile v-model="model" :state="Boolean(model)" />
         </div>
       </div>
     </div>

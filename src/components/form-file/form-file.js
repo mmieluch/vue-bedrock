@@ -46,7 +46,7 @@ const FormFile = merge({}, bvFormFile, {
         id: this.safeId('_VB_file_control_'),
       },
       class: [
-        'button',
+        ...this.labelClass,
         this.formControlLabelStateClass,
       ],
     }, this.$slots.label || this.selectLabel)
@@ -68,6 +68,14 @@ const FormFile = merge({}, bvFormFile, {
     }, [label, input])
   },
   props: {
+    labelClass: {
+      type: [Array, String],
+      default: ['button', 'custom-file-label', 'vb-form-file-label'],
+    },
+    placeholder: {
+      type: String,
+      default: 'Choose file',
+    },
     tag: {
       type: String,
       default: 'div',
