@@ -3,7 +3,7 @@
     <div class="grid-container">
       <div class="grid-x">
         <div class="cell">
-          <FormFile v-model="model" :state="Boolean(model)" />
+          <FormTextarea :state="false" />
         </div>
       </div>
     </div>
@@ -11,13 +11,13 @@
 </template>
 
 <script>
-  import FormFile from '../../src/components/form-file/form-file'
+  import FormTextarea from '../../src/components/form-textarea/form-textarea'
 
   export default {
     name: 'Foo',
     layout: 'default',
     components: {
-      FormFile,
+      FormTextarea,
     },
     data () {
       return {
