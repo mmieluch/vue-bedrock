@@ -53,7 +53,10 @@ export default {
   },
   computed: {
     isLabelRenderable () {
-      return this.label.length || this.$slots.default
+      return (
+        (typeof this.label === 'string' && !!this.label.length) ||
+        typeof this.$slots.default !== 'undefined'
+      )
     },
   },
   methods: {
