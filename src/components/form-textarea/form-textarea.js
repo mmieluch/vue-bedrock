@@ -103,8 +103,8 @@ export default {
     },
     inputClass () {
       return [
+        this.formControlStateClass,
         this.sizeFormClass,
-        this.stateClass,
       ]
     },
     inputStyle () {

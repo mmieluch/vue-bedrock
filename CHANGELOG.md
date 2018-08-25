@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.0.19"></a>
+## [0.0.19](https://github.com/mmieluch/vue-bedrock/compare/v0.0.18...v0.0.19) (2018-07-20)
+
+
+
+<a name="0.0.18"></a>
+## [0.0.18](https://github.com/mmieluch/vue-bedrock/compare/v0.0.16...v0.0.18) (2018-07-07)
+
+
+
+<a name="0.0.17"></a>
+## 0.0.17 (2018-07-07)
+
+
+
+<a name="0.0.16"></a>
+## [0.0.16](https://github.com/mmieluch/vue-bedrock/compare/v0.0.15...v0.0.16) (2018-07-07)
+
+
+
 <a name="0.0.15"></a>
 ## [0.0.15](https://github.com/mmieluch/vue-bedrock/compare/v0.0.14...v0.0.15) (2018-07-05)
 
